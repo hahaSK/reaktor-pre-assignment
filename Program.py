@@ -44,7 +44,7 @@ def parse_file(path):
             description_header = re.findall('(?<=Description: )(.*)', package, flags=re.MULTILINE)
             description_body = re.findall('(?<=^ )(.*)', package, flags=re.MULTILINE)
             description = description_header + description_body
-            description = (" ".join(description)).replace('..', '\n')
+            description = (" ".join(description)).replace(' . ', '\n')
 
             pack = PackageCls(name, description)
             depend = re.findall('(?<=Depends: )(.*)', package, flags=re.MULTILINE)
